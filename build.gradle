@@ -36,8 +36,6 @@ dependencies {
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'io.projectreactor:reactor-test'
-
-	classpath "com.moowork.gradle:gradle-node-plugin:1.2.0"
 }
 
 tasks.named('test') {

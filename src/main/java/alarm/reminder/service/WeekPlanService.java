@@ -26,11 +26,18 @@ public class WeekPlanService {
         return weekPlanRepository.findAll();
     }
 
-    public Flux<WeekPlan> findWeekPlansByDayOfWeek(DayOfWeek dayOfWeek) {
-        return weekPlanRepository.findWeekPlansByDayOfWeek(dayOfWeek);
+    public Flux<WeekPlan> getByGoal(String goal) {
+        return weekPlanRepository.findWeekPlansByGoal(goal);
     }
 
-    public Flux<WeekPlan> f(LocalDate date) {
-        return weekPlanRepository.findWeekPlansByAlarmDate(date);
+    public Flux<WeekPlan> getByDayOfWeek(DayOfWeek dayOfWeek) {
+        return  weekPlanRepository.findWeekPlansByDayOfWeek(dayOfWeek);
+    }
+
+    public Flux<WeekPlan> findWeekPlansByIsDoneAndGoalDateBefore(Boolean isDone) {
+        return weekPlanRepository.findWeekPlansByIsDoneAndGoalDateBefore(isDone, LocalDate.now());
+    }
+    public Flux<WeekPlan> findWeekPlansByIsDoneAndGoalDateAfter(Boolean isDone) {
+        return weekPlanRepository.findWeekPlansByIsDoneAndGoalDateAfter(isDone, LocalDate.now());
     }
 }

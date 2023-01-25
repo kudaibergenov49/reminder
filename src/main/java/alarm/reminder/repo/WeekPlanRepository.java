@@ -11,5 +11,9 @@ public interface WeekPlanRepository extends ReactiveCrudRepository<WeekPlan, Lon
 
     Flux<WeekPlan> findWeekPlansByDayOfWeek(DayOfWeek dayOfWeek);
 
-    Flux<WeekPlan> findWeekPlansByAlarmDate(LocalDate date);
+    Flux<WeekPlan> findWeekPlansByGoal(String goal);
+
+    Flux<WeekPlan> findWeekPlansByIsDoneAndGoalDateBefore(Boolean isDone, LocalDate goalDate);
+
+    Flux<WeekPlan> findWeekPlansByIsDoneAndGoalDateAfter(Boolean isDone, LocalDate goalDate);
 }
